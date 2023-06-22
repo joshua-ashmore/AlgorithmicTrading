@@ -23,5 +23,8 @@
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "python.formatting.provider": "none",
-  "python.analysis.typeCheckingMode": "basic"
+  "python.analysis.typeCheckingMode": "basic",
+  "python.linting.flake8Args": [
+        "--max-line-length=120",
+    ],
 }
