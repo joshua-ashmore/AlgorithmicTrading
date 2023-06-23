@@ -59,4 +59,5 @@ class RSI:
 
 trade_data = download_data(
     tickers=["AAPL"], start_date="2023-01-01", end_date="2023-03-01"
-)["Adj Close"]
+)
+b = 1
