@@ -15,16 +15,16 @@ class TestMovingAverage:
 
     def test_simple_moving_average(self):
         """Test simple moving average."""
-        trade_data = pd.Series(ADJ_CLOSE_TRADE_DATA)
-        sma = MovingAverage().calculate(
-            data=trade_data, moving_average_type="SMA", window_length=14
-        )
+        market_data = pd.Series(ADJ_CLOSE_TRADE_DATA)
+        sma = MovingAverage(
+            data=market_data, moving_average_type="SMA", window_length=14
+        ).calculate()
         assert np.all(sma[13:] == pd.Series(SMA_EXPECTED_OUTPUT)[13:])
 
     def test_exponentially_weighted_moving_average(self):
         """Test exponentially weighted moving average."""
-        trade_data = pd.Series(ADJ_CLOSE_TRADE_DATA)
-        ema = MovingAverage().calculate(
-            data=trade_data, moving_average_type="EMA", window_length=14
-        )
+        market_data = pd.Series(ADJ_CLOSE_TRADE_DATA)
+        ema = MovingAverage(
+            data=market_data, moving_average_type="EMA", window_length=14
+        ).calculate()
         assert np.all(ema == pd.Series(EMA_EXPECTED_OUTPUT))

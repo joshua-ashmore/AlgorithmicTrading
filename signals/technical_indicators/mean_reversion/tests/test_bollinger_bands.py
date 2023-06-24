@@ -15,7 +15,7 @@ class TestBollingerBands:
     def test_bollinger_bands(self):
         """Test bollinger bands."""
         trade_data = pd.Series(ADJ_CLOSE_TRADE_DATA)
-        bbands = BollingerBands().calculate(
+        bbands = BollingerBands(
             data=trade_data, window_length=20, standard_deviations=2
-        )
+        ).calculate()
         assert np.all(bbands[19:] == pd.Series(BOLLINGER_BANDS_EXPECTED_OUTPUT)[19:])
